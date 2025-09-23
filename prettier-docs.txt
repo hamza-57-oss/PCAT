@@ -1,0 +1,5 @@
+tabWidth: 2 → Her girinti için 2 boşluk
+useTabs: false → Tab yerine boşluk kullan
+semi: true → Her satır sonunda ; koy
+singleQuote: true → Çift tırnak yerine tek tırnak kullan
+trailingComma: es5 → ES5 uyumlu yerlerde sondaki virgülü bırak
