@@ -1,19 +1,15 @@
 const express = require('express');
-
+const path = require('path');
 const app = express();
 
-app.get('/',(req,res)=>{
+//middleware
+app.use(express.static('public'));
 
-  const photo={
-    id:1,
-    name:"Hamza",
-    role:"admin"
-  }
-  res.send(user);
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('temp', 'index.html'));
+});
 
 const port = 3000;
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda başlatıldı.`);
 });
-
