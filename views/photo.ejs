@@ -1,0 +1,52 @@
+<%- include('partials/_header.ejs') %>
+
+<body>
+	<div class="tm-page-wrap mx-auto">
+		<%- include('partials/_navbar.ejs') %>
+
+		<!-- Page content -->
+		<div class="container-fluid">
+			<div class="mx-auto tm-content-container" style="padding-top: 120px;">
+				<main>
+					<!-- Fotoğraf -->
+					<div class="row mb-4">
+						<div class="col-md-5 mx-auto">
+							<img src="/uploads/<%= photo.image %>" alt="<%= photo.title %>" class="img-fluid" style="width: 100%; height: auto; max-height: 600px; object-fit: cover; border-radius: 8px;">
+						</div>
+					</div>
+
+					<!-- Açıklama ve Butonlar -->
+					<div class="row mb-5">
+						<div class="col-lg-6">
+							<h2 class="mb-3" style="font-size: 1.8rem; color: #666;"><%= photo.title %></h2>
+							<p style="font-size: 1.1rem; line-height: 1.8; color: #666;"><%= photo.description %></p>
+						</div>
+						
+						<div class="col-lg-4">
+							<div class="tm-bg-gray" style="padding: 1.5rem; border-radius: 8px;">
+								<div class="mb-3">
+									<a href="/photos/edit/<%= photo._id %>" class="btn btn-primary tm-btn-animate tm-btn-download tm-icon-download" style="width: 100%; padding: 12px;">
+										<span>Güncelle</span>
+									</a>	
+								</div>	
+								
+								<div>
+									<a href="/photos/<%= photo._id %>?_method=DELETE" class="btn btn-danger tm-btn-animate tm-btn-download tm-icon-download" style="width: 100%; padding: 12px;" onclick="return confirm('Bu fotoğrafı silmek istediğinizden emin misiniz?')">
+										<span>Sil</span>
+									</a>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</main>
+
+				<%- include ('partials/_footer.ejs') -%>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<%- include('partials/_header.ejs') %>
+<body>
+  <!-- Navbar -->
+  <%- include('partials/_navbar.ejs') %>
+  
+    <div class="container-fluid">
+      <div id="content" class="mx-auto tm-content-container">
+        <main>
+          <div class="row">
+            <div class="col-12">
+              <h2 class="tm-page-title mb-4">Fotoğraf Bilgilerini Güncelle</h2>
+              
+              <div class="row tm-contact-content">
+                <div class="col-md-8 mx-auto">
+                  <form action="/photos/<%= photo._id %>?_method=PUT" method="POST" class="tm-contact-form">
+                    
+                    <div class="form-group">
+                      <label for="title">Başlık</label>
+                      <input 
+                        type="text" 
+                        id="title"
+                        name="title" 
+                        value="<%= photo.title %>"
+                        class="form-control" 
+                        placeholder="Fotoğraf başlığı"
+                        required
+                      >
+                    </div>
+
+                    <div class="form-group">
+                      <label for="description">Açıklama</label>
+                      <textarea 
+                        id="description"
+                        name="description"  
+                        class="form-control" 
+                        rows="6" 
+                        placeholder="Fotoğraf açıklaması"
+                        required
+                      ><%= photo.description %></textarea>
+                    </div>
+
+                    <div class="text-right mt-4">
+                      <button type="submit" class="btn tm-btn-animate tm-btn-submit">
+                        <span>Güncelle</span>
+                      </button>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <%- include('partials/_footer.ejs') %> 
+        <footer class="row pt-5">
+          <div class="col-12">
+            <p class="text-right">Copyright 2025 
+            - Designed by <a href="https://templatemo.com" rel="nofollow" target="_parent">TemplateMo</a></p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+ 
+</body>
+</html>

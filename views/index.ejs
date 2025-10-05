@@ -1,0 +1,74 @@
+<%- include('partials/_header.ejs') %>
+<body>
+  <!-- Navbar -->
+  <%- include('partials/_navbar.ejs') %>
+  
+  <!-- İçerik -->
+  <div class="container-fluid">
+      <div id="content" class="mx-auto tm-content-container">
+        <main>
+          
+              <!-- Fotoğraf Listesi -->
+              <div class="tm-catalog-item-list">
+                <% if (photos.length === 0) { %>
+                  <div class="col-12">
+                    <p class="text-center">Henüz fotoğraf eklenmemiş.</p>
+                  </div>
+                <% } else { %>
+                  <% for (let i=0; i<photos.length; i++) { %>
+                    <div class="tm-catalog-item">
+                      <div class="position-relative tm-thumbnail-container">
+                        <img src="/uploads/<%= photos[i].image %>" alt="<%= photos[i].title %>">
+                        <a href="/photos/<%= photos[i]._id %>" class="position-absolute tm-img-overlay">
+                          <i class="fas fa-search tm-overlay-icon"></i>
+                        </a>
+                      </div>                            
+                      <div class="tm-bg-gray tm-catalog-item-description">
+                        <h3 class="tm-text-primary tm-catalog-item-title">
+                          <%= photos[i].title %>
+                        </h3>
+                        <p class="tm-catalog-item-text">
+                          <%= photos[i].description %>
+                        </p>
+                      </div>
+                    </div>
+                  <% } %>
+                <% } %>
+              </div>
+              
+          <!-- sayfalama  -->
+                    <div>
+                     <% if (pages > 0){ %>
+                        <ul class="nav tm-paging-links">
+                          <!-- 1'den toplam sayfa sayısına kadar döngü -->
+                         <% for(i=1; i <= pages; i++) {  %>
+                          <!-- Eğer bu sayfa şu anki sayfaysa -->
+                          <% if (i== current) { %>
+                            <li class="nav-item active"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                            <!-- Eğer son sayfa DEĞİLSE-->
+                            <%  } else if (i< pages) { %>
+                              <!-- Normal link olarak göster -->
+                            <li class="nav-item"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                            <% } else {%>
+                              <!-- Sayfa numarası yerine ">" işareti göster -->
+                              <li class="nav-item"><a href="/?page=<%= i %>" class="nav-link tm-paging-link">></a></li>
+                              <% } %>
+                           <% } %>
+                          </ul>
+                       <% } %>
+                    </div>
+        </main>
+
+
+
+        <!-- Footer -->
+        <%- include('partials/_footer.ejs') %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

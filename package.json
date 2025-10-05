@@ -27,6 +27,12 @@
     "prettier": "3.6.2"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method": "^2.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.18.3",
+    "multer": "^2.0.2",
+    "override": "^0.0.1"
   }
 }
