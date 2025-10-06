@@ -13,4 +13,13 @@ exports.getEditPage=  async (req, res) => {
 };
 
 
+exports.getRegisterPage = (req, res) => {
+  res.render('register', { error: null });
+};
+
+exports.getLoginPage = (req, res) => {
+  res.render('login', { error: null });
+};
+
+
     
