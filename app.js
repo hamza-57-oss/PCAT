@@ -7,7 +7,7 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-const PhotoController = require('./controllers/photocontrollers');
+const PhotoController = require('./controllers/photoControllers');
 const pagecontroller = require('./controllers/pagecontroller');
 const userController = require('./controllers/usercontroller');
 const { authenticateUser, redirectIfAuthenticated, setUserLocals } = require('./middlewares/authMiddleware');
@@ -19,16 +19,16 @@ mongoose.connect('mongodb://localhost/pcat-test-db');
 
 app.set('view engine', 'ejs');
 
-// SESSION AYARLARI (MIDDLEWARE'lerden önce olmalı!)
+// SESSION AYARLARI (MIDDLEWARE'lerden önce )
 app.use(session({
-  secret: 'KKD kullanımı hayat kurtarır', 
-  resave: false,
-  saveUninitialized: false,
+  secret: 'KKD kullanımı hayat kurtarır', // Güvenlik anahtarı (şifreleme için)
+  resave: false, // Her istekte oturumu yeniden kaydetme
+  saveUninitialized: false, // Boş oturumları kaydetme
   store: MongoStore.create({
-    mongoUrl: 'mongodb://localhost/pcat-test-db'
+    mongoUrl: 'mongodb://localhost/pcat-test-db' // Oturumlar MongoDB’de saklanacak
   }),
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 7 gün
+    maxAge: 1000 * 60 * 60 * 24 * 7 // Oturum süresi: 7 gün
   }
 }));
 

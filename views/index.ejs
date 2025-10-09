@@ -4,15 +4,7 @@
   <%- include('partials/_navbar.ejs') %>
   <nav>
   
-  <% if (currentUser) { %>
-    <span>Hoş geldin, <%= currentUser.username %>!</span>
-    <a href="/logout">Çıkış Yap</a>
-  <% } else { %>
-    <a href="/login">Giriş Yap</a>
-    <a href="/register">Kayıt Ol</a>
-  <% } %>
-</nav>
-  
+    
   <!-- İçerik -->
   <div class="container-fluid">
       <div id="content" class="mx-auto tm-content-container">
